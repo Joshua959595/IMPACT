@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# logs / training outputs
+Generation/logs/
+ACT/work_dirs/
+
+# data, weights and generated outputs (not distributed)
+Generation/reference/*
+!Generation/reference/.gitkeep
+ACT/dataset/*/*
+!ACT/dataset/*/.gitkeep
+ACT/pretrained/*
+!ACT/pretrained/.gitkeep
+*.pth

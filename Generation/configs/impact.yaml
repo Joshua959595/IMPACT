@@ -1,0 +1,39 @@
+# IMPACT Generation config, shared by all four stages:
+#   1. 01_generate_plans.py       Multilevel Planner (MP): GGP + SGPs
+#   2. 02_generate_images.py      plan-guided self-refinement image generation
+#   3. 03_generate_masks.py       referring segmentation masks
+#   4. 04_generate_weightmaps.py  weight maps for ACT
+#
+# Relative paths are resolved against the Generation/ directory.
+
+# One-shot reference/condition image from the target domain.
+reference_image: reference/image.jpg
+
+# Everything is written here; by default this is ACT's target-domain folder,
+# so ACT can train on the output directly.
+output_dir: ../ACT/dataset/target
+
+# true -> only (re)generate samples whose output files are still missing.
+resume_on: false
+
+base_user_prompt: >
+  Generate aerial drone images of wildfire smoke in a forest environment
+  visually similar to the reference image, while varying altitude,
+  viewpoint, distance, and smoke appearance.
+
+# Target phenomenon to segment in stage 3.
+referring_expression: wildfire smoke
+
+n_samples: 100
+
+# Self-refinement loop.
+max_iters: 5
+patience: 3
+
+# Generated image / mask size [W, H].
+image_size: [1344, 768]
+
+models:
+  vlm_id: Qwen/Qwen3-VL-32B-Instruct
+  t2i_id: Qwen/Qwen-Image-Edit-2509
+  seg_id: ByteDance/Sa2VA-Qwen3-VL-4B

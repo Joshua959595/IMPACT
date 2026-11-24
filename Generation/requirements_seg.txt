@@ -1,0 +1,21 @@
+# IMPACT Generation, stages 3-4 (Sa2VA masks + ACT weight maps)
+# Python 3.11. Sa2VA-Qwen3-VL-4B's remote code requires transformers==4.57.0.
+# Install torch first (see README):
+#   pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu121
+transformers==4.57.0
+accelerate==1.14.0
+huggingface_hub==0.36.2
+qwen-vl-utils==0.0.14
+timm==1.0.28
+einops==0.8.2
+safetensors==0.8.0
+sentencepiece==0.2.2
+tokenizers==0.22.2
+av==18.0.0
+opencv-python-headless==5.0.0.93
+numpy==2.4.4
+scipy==1.17.1
+pillow==12.2.0
+PyYAML==6.0.3
+regex==2026.7.19
+tqdm==4.69.1

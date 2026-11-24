@@ -1,0 +1,19 @@
+# IMPACT Generation, stages 1-2 (Multilevel Planner + self-refinement)
+# Python 3.11. Install torch first (see README):
+#   pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu121
+transformers==5.14.1
+diffusers==0.39.0
+accelerate==1.14.0
+bitsandbytes==0.49.2
+qwen-vl-utils==0.0.14
+huggingface_hub==1.24.0
+safetensors==0.8.0
+sentencepiece==0.2.2
+tokenizers==0.22.2
+av==18.0.0
+numpy==2.4.4
+scipy==1.17.1
+pillow==12.2.0
+PyYAML==6.0.3
+regex==2026.7.19
+tqdm==4.69.0
