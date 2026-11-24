@@ -1,5 +1,8 @@
 # ACT: Adaptive Confidence Thresholding
 
+Part of **IMPACT: A Single Non-fire UAV Image-based Unsupervised Domain
+Adaptation for Wildfire Smoke Segmentation**.
+
 Downstream unsupervised domain adaptation for smoke segmentation:
 HRDA (DAFormer decoder, MiT-B5 encoder) with DACS self-training, where the
 pseudo-label confidence threshold is adapted per pixel by the weight maps

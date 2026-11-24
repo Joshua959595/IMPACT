@@ -6,7 +6,7 @@
 #
 # Relative paths are resolved against the Generation/ directory.
 
-# One-shot reference/condition image from the target domain.
+# The single non-fire UAV image from the target domain (reference/condition image).
 reference_image: reference/image.jpg
 
 # Everything is written here; by default this is ACT's target-domain folder,

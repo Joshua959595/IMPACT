@@ -1,11 +1,13 @@
-# IMPACT
+# IMPACT: A Single Non-fire UAV Image-based Unsupervised Domain Adaptation for Wildfire Smoke Segmentation
 
-IMPACT synthesizes a labeled target-domain training set for UAV wildfire smoke
-segmentation from a **single reference image**, then adapts a segmentation
-model to the target domain with **Adaptive Confidence Thresholding (ACT)**.
+IMPACT adapts a wildfire smoke segmentation model to a new UAV target domain
+using only **a single non-fire UAV image** from that domain. From this image,
+a Multilevel Planner (MP) and plan-guided self-refinement synthesize a
+target-domain training set with smoke, and the segmentation model is then
+adapted with **Adaptive Confidence Thresholding (ACT)**.
 
 ```
-reference image + base user prompt
+single non-fire UAV image + base user prompt
         │
         ▼
 Generation/                                         ACT/
@@ -28,7 +30,7 @@ IMPACT/
 │   ├── 04_generate_weightmaps.py  # stage 4: weight maps for ACT
 │   ├── common/                 # model wrappers, config, utils
 │   ├── configs/impact.yaml     # single config for all four stages
-│   ├── reference/              # put the reference image here (image.jpg)
+│   ├── reference/              # the single non-fire UAV image (image.jpg)
 │   ├── requirements_gen.txt    # env for stages 1-2
 │   └── requirements_seg.txt    # env for stages 3-4
 └── ACT/                        # downstream UDA training with ACT
@@ -99,7 +101,7 @@ Arrange the data as follows. Masks are single-channel PNGs with values
 `{0: background, 1: smoke}`.
 
 ```
-Generation/reference/image.jpg       # one frame from the target domain (Boreal Forest Fire)
+Generation/reference/image.jpg       # a single non-fire UAV frame from the target domain
 
 ACT/dataset/
 ├── source/                          # SMOKE5K (labeled source domain)
@@ -118,7 +120,7 @@ ACT/dataset/
 
 ### 1. Generation (MP + self-refinement)
 
-Edit `Generation/configs/impact.yaml` if needed (reference image, base user
+Edit `Generation/configs/impact.yaml` if needed (non-fire reference image, base user
 prompt, number of samples, ...). By default every stage writes into
 `ACT/dataset/target/`.
 
